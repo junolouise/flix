@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flix</title>
+    <title>Movies</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+
+  <header>
+    <h1>Flix</h1>
+  </header>
+
+  <div class="content">
     <%= yield %>
-  </body>
+  </div>
+
+  <footer>
+    <p>
+      Copyright Katie Rodgers <%= Time.now.year %>
+    </p>
+  </footer>
+  
+</body>
 </html>
