@@ -22,4 +22,8 @@ class MoviesController < ApplicationController
 
         redirect_to @movie
     end
+
+    def new
+        @movie = Movie.new
+    end
 end
