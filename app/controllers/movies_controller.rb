@@ -38,11 +38,13 @@ class MoviesController < ApplicationController
         @movie.destroy
         redirect_to movies_url, alert: "Movie has been deleted!"
     end
-end
 
-private
 
-def movie_params
-    params.require(:movie).
-          permit(:title, :description, :rating, :released_on, :total_gross, :director, :image_file_name, :duration)
+    private
+
+    def movie_params
+        params.require(:movie).
+            permit(:title, :description, :rating, :released_on, :total_gross, :director, :image_file_name, :duration)
+    end
+
 end
