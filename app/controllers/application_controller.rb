@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     private
 
     def require_signin
+        session[:intended_url] = request.url
         unless current_user
             redirect_to new_session_url, alert: "Please sign in first."
         end
