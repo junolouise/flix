@@ -4,6 +4,10 @@ class Movie < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
 
+  has_many :characterizations, dependent: :destroy
+
+  has_many :genres, through: :characterizations
+
   has_many :fans, through: :favorites, source: :user
 
     validates :title, :released_on, :duration, presence: true
@@ -36,4 +40,4 @@ class Movie < ApplicationRecord
     def average_stars_as_percent
       (self.average_stars / 5.0) * 100
     end
-  end
+end
