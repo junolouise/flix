@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   before_save :format_username
 
+  before_save :format_email
+
   scope :by_name, -> { order(:name) }
 
   scope :not_admins, -> { by_name.where(admin: false) }
@@ -30,6 +32,10 @@ class User < ApplicationRecord
 
   def format_username
     self.username = username.downcase
+  end
+
+  def format_email
+    self.email = email.downcase
   end
   
 end
