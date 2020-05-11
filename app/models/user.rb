@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_secure_password
 
+  scope :by_name, -> { order(:name) }
+
+  scope :not_admins, -> { by_name.where(admin: false) }
+
   has_many :reviews, dependent: :destroy
 
   has_many :favorites, dependent: :destroy

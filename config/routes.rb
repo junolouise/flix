@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get "signin" => "sessions#new"
 
   get "signup" => "users#new"
+
+  get "movies/filter/:filter" => "movies#index", as: :filtered_movies
   
 end

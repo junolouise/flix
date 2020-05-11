@@ -1,12 +1,12 @@
 class Movie < ApplicationRecord
 
   scope :released, -> { where("released_on < ?", Time.now).order("released_on desc") }
-
   scope :upcoming, -> { where("released_on > ?", Time.now).order("released_on asc") }
-
   scope :recent, ->(max=5) { released.limit(max) }
+  scope :grossed_less_than, ->(amount) { released.where("total_gross < ?", amount) }
+  scope :grossed_greater_than, ->(amount) { released.where("total_gross > ?", amount) }
 
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, -> { order(created_at: :desc) }, dependent: :destroy
 
   has_many :favorites, dependent: :destroy
 
