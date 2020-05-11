@@ -3,13 +3,14 @@
     <%= link_to image_tag("logo"), root_path %>
       <ul class="left">
         <li>
-          <%= link_to("Released", movies_path) %>
+          <%= link_to "Released", movies_path %>
         </li>
           <li>
-          <%= link_to("Upcoming", filtered_movies_path(:upcoming)) %>
+          <li>
+             <%= link_to 'Upcoming', filtered_movies_path(:upcoming) %>
         </li>
           <li>
-          <%= link_to("Recent", filtered_movies_path(:recent)) %>
+            <%= link_to 'Recent', filtered_movies_path(:recent) %>
         </li>
       </ul>
       <ul class="right">
